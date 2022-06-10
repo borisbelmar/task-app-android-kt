@@ -2,12 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:elevation="20dp"
     android:orientation="vertical"
-    android:padding="12dp">
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="16dp">
 
-    <TextView
-        android:id="@+id/item_task_tv_title"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Placeholder Task Title" />
+        android:background="#D0D0D0"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/item_task_tv_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="#ID"
+            android:textColor="#74000000"
+            android:textSize="8sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/item_task_tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Placeholder Task Title"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/item_task_tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Placeholder Task Description" />
+    </LinearLayout>
+
 </LinearLayout>

@@ -30,8 +30,12 @@ class TaskAdapter(private val ctx: Context, private val tasks: List<Task>) : Bas
         val task = tasks[i]
 
         val tvTitle = rowView.findViewById<TextView>(R.id.item_task_tv_title)
+        val tvId = rowView.findViewById<TextView>(R.id.item_task_tv_id)
+        val tvDescription = rowView.findViewById<TextView>(R.id.item_task_tv_description)
 
         tvTitle.text = task.title
+        tvId.text = task.id.toString()
+        tvDescription.text = task.description
 
         return rowView
     }
