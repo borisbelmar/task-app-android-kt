@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import cl.ciisa.taskapp.controllers.AuthController
+import cl.ciisa.taskapp.models.User
 import cl.ciisa.taskapp.utils.TilValidator
 import cl.ciisa.taskapp.utils.showDatePickerDialog
 import com.google.android.material.textfield.TextInputLayout
+import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
@@ -70,7 +73,16 @@ class RegisterActivity : AppCompatActivity() {
                 .isValid()
 
             if (emailValid && passwordValid && firstnameValid && lastnameValid && birthValid) {
-                AuthController(this).register(firstname, lastname, email, password, gender, birth)
+                val user = User(
+                    id = null,
+                    firstname = firstname,
+                    lastname = lastname,
+                    email = email,
+                    gender = gender,
+                    password = password,
+                    birth = SimpleDateFormat("yyyy-MM-dd").parse(birth)
+                )
+                AuthController(this).register(user)
             } else {
                 Toast.makeText(this, "Campos inválidos", Toast.LENGTH_SHORT).show()
             }
