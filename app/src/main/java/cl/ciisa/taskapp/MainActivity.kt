@@ -3,9 +3,11 @@ package cl.ciisa.taskapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
+import cl.ciisa.taskapp.controllers.AuthController
 import cl.ciisa.taskapp.controllers.TaskController
 import cl.ciisa.taskapp.ui.TaskAdapter
 
@@ -15,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val lvTasks = findViewById<ListView>(R.id.activity_main_lv_tasks)
+        val btnLogout = findViewById<Button>(R.id.activity_main_btn_logout)
 
         val allTasks = TaskController(this).getAll()
         val adapter = TaskAdapter(this, allTasks)
@@ -27,6 +30,11 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("task", task)
                 view.context.startActivity(intent)
             }
+        }
+
+        btnLogout.setOnClickListener {
+            val controller = AuthController(this)
+            controller.clearSession()
         }
     }
 }

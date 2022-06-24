@@ -3,6 +3,8 @@ package cl.ciisa.taskapp.controllers
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Handler
+import android.util.Log
 import android.widget.Toast
 import androidx.room.Room
 import cl.ciisa.taskapp.LoginActivity
@@ -14,6 +16,7 @@ import cl.ciisa.taskapp.models.UserEntity
 import java.lang.Exception
 
 class AuthController constructor(ctx: Context) {
+    private val sharedPref = ctx.getSharedPreferences("TASK_APP", Context.MODE_PRIVATE)
     private val INCORRECT_CREDENTIALS = "Credenciales incorrectas"
     private val ctx = ctx
     private val dao = Room.databaseBuilder(
@@ -34,6 +37,10 @@ class AuthController constructor(ctx: Context) {
         }
         if (BCrypt.checkpw(password, user.password)) {
             Toast.makeText(this.ctx, "Bienvenido ${user.firstname}", Toast.LENGTH_SHORT).show()
+            val sharedEdit = sharedPref.edit()
+            sharedEdit.putLong("user_id", user.id!!)
+            sharedEdit.commit()
+
             val intent = Intent(this.ctx, MainActivity::class.java)
             this.ctx.startActivity(intent)
             (this.ctx as Activity).finish()
@@ -65,5 +72,29 @@ class AuthController constructor(ctx: Context) {
             Toast.makeText(this.ctx, "Cuenta existente", Toast.LENGTH_SHORT).show()
         }
 
+    }
+
+    fun checkUserSession() {
+        val id = sharedPref.getLong("user_id", -1)
+
+        Handler().postDelayed({
+            if (id == (-1).toLong()) {
+                val intent = Intent(this.ctx, LoginActivity::class.java)
+                this.ctx.startActivity(intent)
+            } else {
+                val intent = Intent(this.ctx, MainActivity::class.java)
+                this.ctx.startActivity(intent)
+            }
+            (this.ctx as Activity).finish()
+        }, 2000)
+    }
+
+    fun clearSession() {
+        val editor = sharedPref.edit()
+        editor.remove("user_id")
+        editor.commit()
+        val intent = Intent(this.ctx, LoginActivity::class.java)
+        this.ctx.startActivity(intent)
+        (this.ctx as Activity).finish()
     }
 }

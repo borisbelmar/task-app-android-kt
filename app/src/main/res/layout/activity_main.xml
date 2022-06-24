@@ -19,7 +19,17 @@
             android:id="@+id/activity_main_lv_tasks"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@null" />
+            android:layout_weight="1"
+            android:divider="@null">
+
+        </ListView>
+
+        <Button
+            android:id="@+id/activity_main_btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Cerrar sesión" />
 
     </LinearLayout>
 
