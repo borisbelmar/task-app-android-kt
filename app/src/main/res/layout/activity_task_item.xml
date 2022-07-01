@@ -25,10 +25,42 @@
             android:paddingBottom="32pt">
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Título"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <TextView
                 android:id="@+id/activity_task_item_tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Placeholder Title" />
+                android:layout_marginBottom="8dp"
+                android:text="Título" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Descripción"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/activity_task_item_tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Descripción" />
+            <Button
+                android:id="@+id/activity_task_item_btn_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Actualizar tarea" />
+            <Button
+                android:id="@+id/activity_task_item_btn_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Eliminar tarea" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

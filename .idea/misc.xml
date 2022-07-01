@@ -6,8 +6,10 @@
         <entry key="..\:/Users/boris/AndroidStudioProjects/TaskApp/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/boris/AndroidStudioProjects/TaskApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/boris/AndroidStudioProjects/TaskApp/app/src/main/res/layout/activity_register.xml" value="0.18" />
-        <entry key="..\:/Users/boris/AndroidStudioProjects/TaskApp/app/src/main/res/layout/activity_splash.xml" value="0.5" />
-        <entry key="..\:/Users/boris/AndroidStudioProjects/TaskApp/app/src/main/res/layout/activity_task_item.xml" value="0.22" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/TaskApp/app/src/main/res/layout/activity_splash.xml" value="0.33" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/TaskApp/app/src/main/res/layout/activity_task_detail.xml" value="0.328125" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/TaskApp/app/src/main/res/layout/activity_task_form.xml" value="0.25" />
+        <entry key="..\:/Users/boris/AndroidStudioProjects/TaskApp/app/src/main/res/layout/activity_task_item.xml" value="0.1" />
         <entry key="..\:/Users/boris/AndroidStudioProjects/TaskApp/app/src/main/res/layout/item_task.xml" value="0.75" />
       </map>
     </option>

@@ -18,8 +18,10 @@ class MainActivity : AppCompatActivity() {
 
         val lvTasks = findViewById<ListView>(R.id.activity_main_lv_tasks)
         val btnLogout = findViewById<Button>(R.id.activity_main_btn_logout)
+        val btnCreate = findViewById<Button>(R.id.activity_main_btn_create)
 
-        val allTasks = TaskController(this).getAll()
+        val authController = AuthController(this)
+        val allTasks = TaskController(this, authController.getSessionUserId()).getAll()
         val adapter = TaskAdapter(this, allTasks)
 
         lvTasks.adapter = adapter
@@ -35,6 +37,11 @@ class MainActivity : AppCompatActivity() {
         btnLogout.setOnClickListener {
             val controller = AuthController(this)
             controller.clearSession()
+        }
+
+        btnCreate.setOnClickListener {
+            val intent = Intent(this, TaskFormActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -62,4 +62,27 @@ class TaskController constructor(ctx: Context, userId: Long = 0) {
         ctx.startActivity(intent)
         (this.ctx as Activity).finish()
     }
+
+    fun update (task: Task) {
+        val entity = TaskEntity(
+            id = task.id,
+            title = task.title,
+            description = task.description,
+            done = task.done,
+            userId = sharedPref.getLong("user_id", -1)
+        )
+        dao.update(entity)
+
+        val intent = Intent(ctx, MainActivity::class.java)
+        ctx.startActivity(intent)
+        (this.ctx as Activity).finish()
+    }
+
+    fun delete (id: Long) {
+        dao.delete(id)
+
+        val intent = Intent(ctx, MainActivity::class.java)
+        ctx.startActivity(intent)
+        (this.ctx as Activity).finish()
+    }
 }
